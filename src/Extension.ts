@@ -12,7 +12,7 @@ import { Configuration } from "./lib/class.js"
 import { getResult, trueFalse, log } from "./Console.js"
 
 const ranInt = (min: number, max: number) => {return Math.floor(Math.random() * (max - min) + min)};
-  
+
 const mapInt = (number:number, fromMIN:number, fromMAX:number, toMIN:number, toMAX:number) => {return Math.floor(((number - fromMIN) / (fromMAX - fromMIN)) * (toMAX - toMIN) + toMIN)}
 
 const sleep = (ms:number) => {return new Promise(resolve => setTimeout(resolve, ms))}
@@ -151,6 +151,23 @@ const commandHandler = async () => {
     return commands
 }
 
+const reloadPresence = (client:discord.Client) => {
+    const activity = new discord.RichPresence()
+        .setApplicationId("")
+        .setType("")
+        .setName("")
+        .setDetails("")
+        .setStartTimestamp(new Date(global.startTime))
+        .setAssetsLargeImage("")
+        .setAssetsLargeText("")
+        .setAssetsSmallImage("")
+        .setAssetsSmallText("")
+        .addButton('', "")
+        .addButton('', "")
+    client.user?.setActivity(activity.toJSON())
+    client.user?.setStatus("idle")
+}
+
 const solveCaptcha = async (url?:string, huntbotCaptcha = false) => {
     if(url && !huntbotCaptcha) {
         const response = await axios.get(url, {
@@ -181,7 +198,7 @@ const solveCaptcha = async (url?:string, huntbotCaptcha = false) => {
             })
         }
     } else if(url && huntbotCaptcha) {
-        
+
     }
 }
 
