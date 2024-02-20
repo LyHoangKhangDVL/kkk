@@ -154,7 +154,7 @@ const commandHandler = async () => {
 const reloadPresence = (client:discord.Client) => {
     const activity = new discord.RichPresence()
         .setApplicationId("")
-        .setType("")
+        .setType("PLAYING")
         .setName("")
         .setDetails("")
         .setStartTimestamp(new Date(global.startTime))
