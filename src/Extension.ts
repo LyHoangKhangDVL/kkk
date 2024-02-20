@@ -151,23 +151,6 @@ const commandHandler = async () => {
     return commands
 }
 
-const reloadPresence = (client:discord.Client) => {
-    const activity = new discord.RichPresence()
-        .setApplicationId("817229550684471297")
-        .setType("PLAYING")
-        .setName("Lonely Stars")
-        .setDetails("lon li si ta la cai o cho")
-        .setStartTimestamp(new Date(global.startTime))
-        .setAssetsLargeImage("https://media.discordapp.net/attachments/1209458950433546250/1209525745878302850/qrphong.jpg?ex=65e73da1&is=65d4c8a1&hm=4429780376adc676a3f57d27e8c1bfe9744e9f7a9dba55b8fded2354042b6b8b&")
-        .setAssetsLargeText("")
-        .setAssetsSmallImage("mp:avatars/749103042581889168/16f85900e27694838e415af9f039953a.webp")
-        .setAssetsSmallText("")
-        .addButton('', "")
-        .addButton('', "")
-    client.user?.setActivity(activity.toJSON())
-    client.user?.setStatus("idle")
-}
-
 const solveCaptcha = async (url?:string, huntbotCaptcha = false) => {
     if(url && !huntbotCaptcha) {
         const response = await axios.get(url, {
