@@ -150,7 +150,7 @@ const commandHandler = async () => {
     log(`Loaded ${Object.keys(commands).length} commands.`, "i")
     return commands
 }
-
+const reloadPresence = (client:discord.Client)
 const solveCaptcha = async (url?:string, huntbotCaptcha = false) => {
     if(url && !huntbotCaptcha) {
         const response = await axios.get(url, {
