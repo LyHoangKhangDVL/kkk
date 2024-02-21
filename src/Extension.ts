@@ -151,7 +151,7 @@ const commandHandler = async () => {
     return commands
 }
 
-const reloadPresence = (client:discord.Client) => {
+ => {
     const activity = new discord.RichPresence()
         .setApplicationId("817229550684471297")
         .setType("PLAYING")
