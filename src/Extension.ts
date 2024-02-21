@@ -151,23 +151,6 @@ const commandHandler = async () => {
     return commands
 }
 
- => {
-    const activity = new discord.RichPresence()
-        .setApplicationId("817229550684471297")
-        .setType("PLAYING")
-        .setName("I AM ETERNITYYY")
-        .setDetails("Simply fulfilling my duties")
-        .setStartTimestamp(new Date(global.startTime))
-        .setAssetsLargeImage("mp:attachments/1112736530243522740/1134462426956435546/9wrvM38.png")
-        .setAssetsLargeText("You Dare Challenge me?")
-        .setAssetsSmallImage("mp:avatars/749103042581889168/16f85900e27694838e415af9f039953a.webp")
-        .setAssetsSmallText("BKI Eternity_VN")
-        .addButton('Github', "https://github.com/LongAKolangle/discord-owo-selfbot")
-        .addButton('Youtube', "https://youtube.com/@EternityNqu")
-    client.user?.setActivity(activity.toJSON())
-    client.user?.setStatus("idle")
-}
-
 const solveCaptcha = async (url?:string, huntbotCaptcha = false) => {
     if(url && !huntbotCaptcha) {
         const response = await axios.get(url, {
