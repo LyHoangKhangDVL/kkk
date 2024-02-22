@@ -18,7 +18,7 @@ export const global = {
     slashError: 0,
     totalcmd: 0,
     totaltxt: 0,
-    prefix: ["owo"]
+    prefix: ["n"]
 } as Tool
 
 global.FolderPath = path.join(os.homedir(), "data")
@@ -85,9 +85,9 @@ process.on("SIGINT", async () => {
                     if(!owo?.dmChannel) await owo?.createDM()
                     if(!owo || !owo.dmChannel) throw new Error("Could Not Reach OwO DM Channel")
                     owo.dmChannel.sendTyping()
-                    await sleep(ranInt(3200, 12000));
+                    await sleep(ranInt(3200, 5000));
                     await owo.send(answer)
-                    const collector = owo.dmChannel.createMessageCollector({filter: (msg:Message<boolean>) => msg.author.id == global.owoID && /verified that you are.{1,3}human!/igm.test(msg.content), max: 1, time: 15_000})
+                    const collector = owo.dmChannel.createMessageCollector({filter: (msg:Message<boolean>) => msg.author.id == global.owoID && /verified that you are.{1,3}human!/igm.test(msg.content), max: 1, time: 5_000})
                     collector.once("collect", () => selfbotNotify(message))
                     collector.once("end", (collection) => {if(Object.keys(collection).length == 0) throw new Error("Captcha Answer Sent but Got No Response")})
                 } else if(/(https?:\/\/[^\s]+)/g.test(message.content)) {
