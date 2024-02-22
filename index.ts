@@ -18,7 +18,7 @@ export const global = {
     slashError: 0,
     totalcmd: 0,
     totaltxt: 0,
-    prefix: ["n"]
+    prefix: ["owo"]
 } as Tool
 
 global.FolderPath = path.join(os.homedir(), "data")
@@ -135,7 +135,7 @@ process.on("SIGINT", async () => {
                 if (!owo?.dmChannel) await owo?.createDM();
                 if(!owo || !owo.dmChannel) throw new Error("Could Not Reach OwO DM Channel");
                 await owo.send(msg.content)
-                const collector = owo.dmChannel.createMessageCollector({filter, max: 1, time: 15_000})
+                const collector = owo.dmChannel.createMessageCollector({filter, max: 1, time: 5_000})
                 collector.once("collect", (m) => {console.log(msg.content); msg.reply(m.content)})
             } catch (error) {
                 log(`${error}`, "e")
